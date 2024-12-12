@@ -1,60 +1,25 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+
+import '../../domain/entities/sample/sample_listing_entity.dart';
 import '../../domain/repositories/sample_repository.dart';
-import '../../domain/entities/sample_entity.dart';
-import '../../core/errors/failures.dart';
+import '../data_sources/remote/sample/sample_remote_data_source.dart';
+import '../data_sources/local/sample/sample_local_data_source.dart';
+import '../../core/errors/network_exception.dart';
 
 class SampleRepositoryImpl implements SampleRepository {
-  @override
-  Future<Either<Failure, List<SampleEntity>>> getSamples() async {
-    try {
-      // TODO: Implement actual data fetching logic
-      return Right([]);
-    } catch (e) {
-      return Left(ServerFailure());
-    }
-  }
+  final SampleRemoteDataSource _remoteDataSource;
+  final SampleLocalDataSource _localDataSource;
+
+  SampleRepositoryImpl(this._remoteDataSource, this._localDataSource);
 
   @override
-  Future<Either<Failure, SampleEntity>> getSampleById(String id) async {
-    try {
-      // TODO: Implement actual data fetching logic
-      return Right(SampleEntity(
-        id: id,
-        createdAt: DateTime.now(),
-        isDeleted: false,
-      ));
-    } catch (e) {
-      return Left(ServerFailure());
-    }
-  }
-
-  @override
-  Future<Either<Failure, void>> addSample(SampleEntity sample) async {
-    try {
-      // TODO: Implement actual data adding logic
-      return const Right(null);
-    } catch (e) {
-      return Left(ServerFailure());
-    }
-  }
-
-  @override
-  Future<Either<Failure, void>> updateSample(SampleEntity sample) async {
-    try {
-      // TODO: Implement actual data updating logic
-      return const Right(null);
-    } catch (e) {
-      return Left(ServerFailure());
-    }
-  }
-
-  @override
-  Future<Either<Failure, void>> deleteSample(String id) async {
-    try {
-      // TODO: Implement actual data deletion logic
-      return const Right(null);
-    } catch (e) {
-      return Left(ServerFailure());
+  Future<Either<NetworkException, SampleListingEntity>> getSamples() async {
+    try { 
+      final result = await _remoteDataSource.getSamples();
+      return Right(result.toEntity());
+    } on DioException catch (e) {
+      return Left(NetworkException.fromDioError(e));
     }
   }
 }
