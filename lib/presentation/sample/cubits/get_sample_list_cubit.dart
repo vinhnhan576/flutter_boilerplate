@@ -16,7 +16,7 @@ class GetSampleListCubit extends Cubit<GetSampleListState> {
     try {
       emit(const GetSampleListLoading());
 
-      final result = await _sampleUsecases.getSamples();
+      final result = await _sampleUsecases.getSamples(perPage: 10, page: 1);
 
       result.fold(
         (error) => emit(GetSampleListError(message: error.message)),
