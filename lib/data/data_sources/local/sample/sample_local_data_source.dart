@@ -1,6 +1,6 @@
-import '../../../models/sample/sample_model.dart';
+import '../_collections/sample_collection.dart';
 
 abstract class SampleLocalDataSource {
-  Future<List<SampleModel>> getSamples();
-  Future<void> cacheSamples(List<SampleModel> samples);
-} 
+  Future<void> saveSample({required SampleCollection sample});
+  Future<void> deleteSample({required int sampleId});
+}
