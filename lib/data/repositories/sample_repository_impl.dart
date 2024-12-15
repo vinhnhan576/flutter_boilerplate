@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_boilerplate/domain/entities/sample/sample_entity.dart';
 
-import '../../domain/entities/sample/sample_listing_entity.dart';
-import '../../domain/repositories/sample_repository.dart';
-import '../data_sources/remote/sample/sample_remote_data_source.dart';
-import '../data_sources/local/sample/sample_local_data_source.dart';
-import '../../core/exceptions/network_exception.dart';
+import 'package:flutter_boilerplate/core/exceptions/network_exception.dart';
+import 'package:flutter_boilerplate/data/data_sources/remote/sample/sample_remote_data_source.dart';
+import 'package:flutter_boilerplate/domain/entities/sample/sample_entity.dart';
+import 'package:flutter_boilerplate/domain/entities/sample/sample_listing_entity.dart';
+import 'package:flutter_boilerplate/domain/repositories/sample_repository.dart';
+import 'package:flutter_boilerplate/data/data_sources/local/sample/sample_local_data_source.dart';
 
 class SampleRepositoryImpl implements SampleRepository {
   final SampleRemoteDataSource _remoteDataSource;
@@ -16,10 +16,10 @@ class SampleRepositoryImpl implements SampleRepository {
 
   @override
   Future<Either<NetworkException, SampleListingEntity>> getSamples(
-      {required int perPage, required int page}) async {
+      {required int page}) async {
     try {
       final result =
-          await _remoteDataSource.getSamples(perPage: perPage, page: page);
+          await _remoteDataSource.getSamples(page: page);
       return Right(result.toEntity());
     } on DioException catch (e) {
       return Left(NetworkException.fromDioError(e));

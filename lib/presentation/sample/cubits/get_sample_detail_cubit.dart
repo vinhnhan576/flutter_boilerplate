@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../domain/entities/sample/sample_entity.dart';
-import '../../../domain/usecases/export_usecases.dart';
+import 'package:flutter_boilerplate/domain/entities/sample/sample_entity.dart';
+import 'package:flutter_boilerplate/domain/usecases/sample_usecase.dart';
 
 part 'get_sample_detail_state.dart';
 

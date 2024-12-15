@@ -1,7 +1,7 @@
 import 'package:isar/isar.dart';
 
-import '../../../../domain/entities/sample/sample_entity.dart';
-import '../../mappers/entity_convertible.dart';
+import 'package:flutter_boilerplate/domain/entities/sample/sample_entity.dart';
+import 'package:flutter_boilerplate/data/data_sources/mappers/entity_convertible.dart';
 
 part 'sample_collection.g.dart';
 

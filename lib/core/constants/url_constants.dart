@@ -3,5 +3,5 @@ class UrlConstants {
 
   // Endpoints
   static const String samples =
-      'https://mocki.io/v1/5c59a17f-23af-40ea-88af-32cde3753c0f'; //Mock API
+      '20b8b10e-c2ba-4158-b63d-4b4456bf6c5e'; //Mock API
 }

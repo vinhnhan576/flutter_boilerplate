@@ -1,23 +1,26 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_boilerplate/core/network/dio_client.dart';
+import 'package:flutter_boilerplate/presentation/sample/cubits/get_sample_list_cubit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
-import 'core/database/local_database.dart';
-import 'core/theme/cubit/theme_cubit.dart';
-import 'domain/usecases/export_usecases.dart';
-import 'domain/entities/export_entities.dart';
-import 'domain/repositories/export_repositories.dart';
-import 'data/models/export_models.dart';
-import 'data/repositories/export_repository_impls.dart';
-import 'data/data_sources/export_datasources.dart';
-import 'presentation/sample/cubits/get_sample_detail_cubit.dart';
-import 'routing/app_router.dart';
-import 'core/theme/app_theme.dart';
+import 'package:flutter_boilerplate/core/database/local_database.dart';
+import 'package:flutter_boilerplate/core/theme/app_theme.dart';
+import 'package:flutter_boilerplate/core/theme/cubit/theme_cubit.dart';
+import 'package:flutter_boilerplate/data/repositories/export_repository_impls.dart';
+import 'package:flutter_boilerplate/domain/repositories/export_repositories.dart';
+import 'package:flutter_boilerplate/data/data_sources/export_datasources.dart';
+import 'package:flutter_boilerplate/domain/usecases/export_usecases.dart';
+import 'package:flutter_boilerplate/presentation/sample/cubits/get_sample_detail_cubit.dart';
+import 'package:flutter_boilerplate/routing/app_router.dart';
+
+// import 'domain/entities/export_entities.dart';
+// import 'data/models/export_models.dart';
 
 part 'injector.dart';
 

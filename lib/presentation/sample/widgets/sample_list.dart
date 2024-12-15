@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../domain/entities/sample/sample_listing_entity.dart';
+
+import 'package:flutter_boilerplate/domain/entities/sample/sample_listing_entity.dart';
 
 class SampleList extends StatelessWidget {
   final SampleListingEntity samples;

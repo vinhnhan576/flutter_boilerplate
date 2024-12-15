@@ -14,12 +14,12 @@ class GetSampleListLoading extends GetSampleListState {
 }
 
 class GetSampleListLoaded extends GetSampleListState {
-  const GetSampleListLoaded({required this.samples});
-
   final List<SampleEntity> samples;
 
+  const GetSampleListLoaded({required this.samples});
+
   @override
-  List<Object?> get props => [samples];
+  List<Object> get props => [samples];
 }
 
 class GetSampleListError extends GetSampleListState {

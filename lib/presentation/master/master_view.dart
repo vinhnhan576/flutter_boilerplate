@@ -1,10 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/entities/export_entities.dart';
-import '../../routing/app_router.dart';
-import '../sample/cubits/get_sample_detail_cubit.dart';
+import 'package:flutter_boilerplate/routing/app_router.dart';
 
 @RoutePage()
 class MasterView extends StatelessWidget {
@@ -13,37 +10,11 @@ class MasterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<GetSampleDetailCubit, GetSampleDetailState>(
-        builder: (context, state) {
-          if (state is GetSampleDetailLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-
-          if (state is GetSampleDetailError) {
-            return Center(
-              child: Text(state.message),
-            );
-          }
-
-          if (state is GetSampleDetailLoaded) {
-            return Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  context.router.push(SampleDetailRoute(
-                    sampleDetail: state.sample,
-                  ));
-                },
-                child: const Text('View Sample Details'),
-              ),
-            );
-          }
-
-          return const Center(
-            child: Text('No samples available'),
-          );
-        },
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => context.router.navigate(const SampleRoute()),
+          child: const Text('Go to Sample View'),
+        ),
       ),
     );
   }

@@ -3,28 +3,41 @@ part of 'main.dart';
 final injector = GetIt.instance;
 
 Future<void> init() async {
-  //Database
-  injector.registerLazySingleton<LocalDatabase>(
-    () => LocalDatabase(),
-  );
+  injector
+    //* Network
+    ..registerLazySingleton<DioClient>(DioClient.new)
+    
+    //Database
+    ..registerLazySingleton<LocalDatabase>(
+      () => LocalDatabase(),
+    )
 
-  // Usecases
-  injector.registerLazySingleton(
-    () => SampleUsecases(injector()),
-  );
+    // Usecases
+    ..registerLazySingleton(
+      () => SampleUsecases(injector()),
+    )
 
-  // Repositories
-  injector.registerLazySingleton<SampleRepository>(
-    () => SampleRepositoryImpl(injector(), injector()),
-  );
+    // Repositories
+    ..registerLazySingleton<SampleRepository>(
+      () => SampleRepositoryImpl(injector(), injector()),
+    )
 
-  // Data sources
-  injector.registerLazySingleton<SampleLocalDataSource>(
-    () => SampleLocalDataSourceImpl(injector()),
-  );
+    // Data sources
+    ..registerLazySingleton<SampleLocalDataSource>(
+      () => SampleLocalDataSourceImpl(injector<LocalDatabase>()),
+    )
+    ..registerLazySingleton<SampleRemoteDataSource>(
+      () => SampleRemoteDataSourceImpl(injector()),
+    )
 
-  // Cubits
-  injector.registerFactory(
-    () => GetSampleDetailCubit(injector()),
-  );
+    // Cubits
+    ..registerFactory<GetSampleDetailCubit>(
+      () => GetSampleDetailCubit(injector()),
+    )
+    ..registerFactory<GetSampleListCubit>(
+      () => GetSampleListCubit(injector()),
+    )
+
+    // Register ThemeCubit
+    ..registerLazySingleton<ThemeCubit>(ThemeCubit.new);
 }

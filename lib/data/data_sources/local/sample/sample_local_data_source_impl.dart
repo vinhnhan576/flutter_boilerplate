@@ -1,7 +1,6 @@
-import '../../../models/sample/sample_model.dart';
 import 'sample_local_data_source.dart';
-import '../../../../core/database/local_database.dart';
-import '../_collections/sample_collection.dart';
+import 'package:flutter_boilerplate/core/database/local_database.dart';
+import 'package:flutter_boilerplate/data/data_sources/local/_collections/sample_collection.dart';
 
 class SampleLocalDataSourceImpl implements SampleLocalDataSource {
   final LocalDatabase _localDatabase;
@@ -12,7 +11,7 @@ class SampleLocalDataSourceImpl implements SampleLocalDataSource {
   Future<void> saveSample({required SampleCollection sample}) async {
     try {
       final db = _localDatabase.db;
-      await db.writeTxn(() async => db.sampleCollections.put(sample));
+      await db.writeTxn(() async => await db.sampleCollections.put(sample));
     } catch (_) {
       rethrow;
     }

@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
-import '../entities/sample/sample_entity.dart';
-import '../repositories/sample_repository.dart';
-import '../entities/sample/sample_listing_entity.dart';
-import '../../core/exceptions/network_exception.dart';
+
+import 'package:flutter_boilerplate/core/exceptions/network_exception.dart';
+import 'package:flutter_boilerplate/domain/entities/sample/sample_entity.dart';
+import 'package:flutter_boilerplate/domain/entities/sample/sample_listing_entity.dart';
+import 'package:flutter_boilerplate/domain/repositories/sample_repository.dart';
 
 class SampleUsecases {
   final SampleRepository _repository;
@@ -15,8 +16,8 @@ class SampleUsecases {
   }
 
   Future<Either<NetworkException, SampleListingEntity>> getSamples(
-      {required int perPage, required int page}) async {
-    return _repository.getSamples(perPage: perPage, page: page);
+      {required int page}) async {
+    return _repository.getSamples(page: page);
   }
 
   // Future<Either<Failure, void>> addSample(SampleEntity sample) async {

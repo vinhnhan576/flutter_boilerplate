@@ -12,5 +12,5 @@ class SampleEntity extends Equatable {
   });
   
   @override
-  List<Object> get props => [id, createdAt, isDeleted];
+  List<Object?> get props => [id, createdAt, isDeleted];
 }

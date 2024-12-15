@@ -1,6 +1,7 @@
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
-import '../../data/data_sources/local/_collections/sample_collection.dart';
+
+import 'package:flutter_boilerplate/data/data_sources/local/_collections/sample_collection.dart';
 
 class LocalDatabase {
   late final Isar _db;

@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../../domain/entities/sample/sample_entity.dart';
-import '../../data_sources/mappers/entity_convertible.dart';
+
+import 'package:flutter_boilerplate/data/data_sources/mappers/entity_convertible.dart';
+import 'package:flutter_boilerplate/domain/entities/sample/sample_entity.dart';
 import 'package:equatable/equatable.dart';
 
 part 'sample_model.g.dart';
