@@ -15,10 +15,34 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ExhibitionRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ExhibitionView(),
+      );
+    },
     MasterRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const MasterView(),
+      );
+    },
+    PlaceRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PlaceView(),
+      );
+    },
+    RelicRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RelicView(),
+      );
+    },
+    RouteRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RouteView(),
       );
     },
     SampleDetailRoute.name: (routeData) {
@@ -41,6 +65,20 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [ExhibitionView]
+class ExhibitionRoute extends PageRouteInfo<void> {
+  const ExhibitionRoute({List<PageRouteInfo>? children})
+      : super(
+          ExhibitionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ExhibitionRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [MasterView]
 class MasterRoute extends PageRouteInfo<void> {
   const MasterRoute({List<PageRouteInfo>? children})
@@ -50,6 +88,48 @@ class MasterRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MasterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PlaceView]
+class PlaceRoute extends PageRouteInfo<void> {
+  const PlaceRoute({List<PageRouteInfo>? children})
+      : super(
+          PlaceRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PlaceRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RelicView]
+class RelicRoute extends PageRouteInfo<void> {
+  const RelicRoute({List<PageRouteInfo>? children})
+      : super(
+          RelicRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RelicRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RouteView]
+class RouteRoute extends PageRouteInfo<void> {
+  const RouteRoute({List<PageRouteInfo>? children})
+      : super(
+          RouteRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RouteRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
